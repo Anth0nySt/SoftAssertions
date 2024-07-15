@@ -19,12 +19,12 @@ public class SoftAsertionsTest {
         }
 
         @Test
-        void softAsertionsTest(){
+        void softAssertionsTest(){
             open("/selenide");
             $$(".js-pinned-items-reorder-container").first().$("a").click();
             $("#wiki-tab").click();
             $("#wiki-body").shouldHave(Condition.text("Soft assertions"));
-            $(byText("Soft assertions")).click();
+            $("#wiki-body").$(byText("Soft assertions")).click();
             $("#wiki-body").shouldHave(Condition.text("Using JUnit5"));
             $("#wiki-body").shouldHave(Condition.text(
                     "class Tests {\n" +
@@ -40,10 +40,6 @@ public class SoftAsertionsTest {
                             "$(\"#second\").should(visible).click();\n" +
                             "}\n" +
                             "}"));
-
-            sleep(5000);
-
-
         }
 
 }
